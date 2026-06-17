@@ -1,0 +1,24 @@
+pipeline{
+    agent any 
+
+    stages{
+        stage("clone"){
+            steps{
+                git credentialsId: 'github_project', url: 'https://github.com/logeshmathiyazhagan-create/jenkin.git'
+            }
+       }
+       stage("Build"){
+            steps{
+                sh "python3 --version"
+
+            }
+       }
+       stage("Test"){
+            steps{
+                sh 'python3 app.py'
+            }
+       }
+
+
+    }
+} 
